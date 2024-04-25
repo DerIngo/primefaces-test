@@ -14,10 +14,29 @@
     </h:head>
     <h:body>
 
-        <h1>#{testView.string}</h1>
-        <h:form id="frmTest">
-            
-        </h:form>
-
+      <h1>#{testView.string}</h1>
+      <p:messages><p:autoUpdate/></p:messages>
+      <h:form id="frmTest">
+        <p:dataTable value="#{testView.list}" var="item" editable="true" editMode="cell">
+          <p:column width="100" headerText="Name">
+            <p:cellEditor>
+              <f:facet name="output">
+                <h:outputText value="Name: #{item.name}" />
+              </f:facet>
+              <f:facet name="input">
+                <p:inputText value="#{item.name}" required="true"></p:inputText>
+              </f:facet>
+            </p:cellEditor>
+          </p:column>
+        </p:dataTable>
+        <p:commandButton value="Test" action="#{testView.action}" />
+      </h:form>
+      <br/>
+      <p>
+        The Name of the last book is NULL.<br/>
+        The inputText has required="true" attribute.<br/>
+        But you can click the Test-button and the action is executed.<br/>
+        I expected validation to fail BEFORE the action method of the commandButton is executed.
+      </p>
     </h:body>
 </html>
