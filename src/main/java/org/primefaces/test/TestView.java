@@ -47,7 +47,7 @@ public class TestView implements Serializable {
             if (testObject.getName() == null || testObject.getName().isEmpty()) {
                 context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Validation Error FROM ACTION METHOD", "Name is required."));
                 validationFailed = true;
-            } 
+            }
         }
         
         // If validation failed, return null to stay on the same page
