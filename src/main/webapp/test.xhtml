@@ -5,6 +5,7 @@
       xmlns:h="jakarta.faces.html"
       xmlns:p="primefaces">
 
+
     <h:head>
         <title>PrimeFaces Test</title>
         <h:outputScript name="test.js" />
@@ -13,8 +14,16 @@
     <h:body>
 
         <h1>#{testView.string}</h1>
-        <h:form id="frmTest">
 
+        <h:form id="frmTest">
+          <p:message for="@next" showDetail="true"><p:autoUpdate /></p:message>
+          <p:fileUpload id="oneFilex" 
+                   listener="#{testView.handleFileUpload}"
+                   auto="true"
+                   label="Datei hinzufügen"
+                   >
+            <p:validateFile allowTypes="/(\.|\/)(gif|jpeg|jpg|png)$/" />
+          </p:fileUpload>
         </h:form>
 
     </h:body>
