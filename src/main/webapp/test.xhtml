@@ -21,6 +21,7 @@
                    listener="#{testView.handleFileUpload}"
                    auto="true"
                    label="Datei hinzufügen"
+                   accept=".gif,.jpeg,.jpg,.png"
                    >
             <p:validateFile allowTypes="/(\.|\/)(gif|jpeg|jpg|png)$/" />
           </p:fileUpload>
